@@ -18,13 +18,13 @@ const {errorMiddleware}=require('./middleware/error-middleware')
 app.use(fileUpload({
     useTempFiles:true,
   }))
-
+ 
 const corsOptions={
     // origin:process.env.FRONTEND_URL,
     // credentials:true,
     // methods:"GET, POST, PUT, DELETE, PATCH, HEAD"
 }
-
+ 
 app.use(cors(corsOptions))
 app.use(cookieParser())
 //use to check and parse the data
