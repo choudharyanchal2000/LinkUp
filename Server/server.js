@@ -25,7 +25,7 @@ const corsOptions={
     // methods:"GET, POST, PUT, DELETE, PATCH, HEAD"
 }
  
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(cookieParser())
 //use to check and parse the data
 app.use(express.json())
