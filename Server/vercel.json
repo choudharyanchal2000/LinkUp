@@ -1,14 +1,17 @@
 {
-    "builds": [
-      {
-        "src": "server.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "build/**",
-        "use": "@vercel/static"
-      }
-    ],
-   
-  "rewrites": [{ "source": "/(.*)", "destination": "server.js" }]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",  // Your main server file
+      "use": "@vercel/node"
+    },
+    {
+      "src": "client/build/**",  // Path to your React build directory
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server.js" },  // For API calls
+    { "src": "/(.*)", "dest": "/client/build/index.html" }  // For React frontend
+  ]
+}
