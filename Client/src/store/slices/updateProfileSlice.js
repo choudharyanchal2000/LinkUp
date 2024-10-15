@@ -47,7 +47,7 @@ const updateProfileSlice = createSlice({
 export const updateProfile = (data) => async (dispatch) => {
     dispatch(updateProfileSlice.actions.updateProfileRequest())
     try {
-        const response = await fetch("http://localhost:4000/api/v1/user/update/profile", {
+        const response = await fetch("/api/v1/user/update/profile", {
             method: "PUT",
             credentials: "include", // Equivalent to `withCredentials: true`
             body: data, // `data` should be a FormData object
@@ -73,7 +73,7 @@ export const updateProfile = (data) => async (dispatch) => {
 export const updatePassword = (data) => async (dispatch) => {
     dispatch(updateProfileSlice.actions.updatePasswordRequest())
     try {
-        const response = await fetch("http://localhost:4000/api/v1/user/update/password", {
+        const response = await fetch("/api/v1/user/update/password", {
             method: "PUT",
             credentials: "include", // Equivalent to `withCredentials: true`
             body: data, // `data` should be a FormData object

@@ -117,7 +117,7 @@ const jobSlice = createSlice({
 export const fetchJobs = (city, niche, searchKeyword = '') => async (dispatch) => {
     try {
         dispatch(jobSlice.actions.getJobsRequest())
-        let link = "http://localhost:4000/api/v1/job/getall?"
+        let link = "/api/v1/job/getall?"
         let queryParams = [];
         if (searchKeyword) {
             queryParams.push(`searchKeyword=${searchKeyword}`);
@@ -145,7 +145,7 @@ export const fetchJobs = (city, niche, searchKeyword = '') => async (dispatch) =
 export const fetchSingleJob = (jobId) => async (dispatch) => {
     dispatch(jobSlice.actions.requestForSingleJob())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/job/get/${jobId}`, {
+        const response = await fetch(`/api/v1/job/get/${jobId}`, {
             method: "GET",
             credentials: "include", // Equivalent to `withCredentials: true`
 
@@ -170,7 +170,7 @@ export const fetchSingleJob = (jobId) => async (dispatch) => {
 export const getMyJobs = () => async (dispatch) => {
     dispatch(jobSlice.actions.requestForMyJobs())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/job/getMyJobs`, {
+        const response = await fetch(`/api/v1/job/getMyJobs`, {
             method: "GET",
             credentials: "include", // Equivalent to `withCredentials: true`
 
@@ -195,7 +195,7 @@ export const getMyJobs = () => async (dispatch) => {
 export const postJob = (data) => async (dispatch) => {
     dispatch(jobSlice.actions.requestForPostJob())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/job/post`, {
+        const response = await fetch(`/api/v1/job/post`, {
             method: "POST",
             credentials: "include", // Equivalent to `withCredentials: true`
             body: data,
@@ -220,7 +220,7 @@ export const postJob = (data) => async (dispatch) => {
 export const deleteJob = (jobId) => async (dispatch) => {
     dispatch(jobSlice.actions.requestForDeleteJob())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/job/delete/${jobId}`, {
+        const response = await fetch(`/api/v1/job/delete/${jobId}`, {
             method: "DELETE",
             credentials: "include", // Equivalent to `withCredentials: true`
           

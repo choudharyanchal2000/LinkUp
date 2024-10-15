@@ -98,7 +98,7 @@ const userSlice = createSlice({
 export const register = (data) => async (dispatch) => {
     dispatch(userSlice.actions.registerRequest());
     try {
-      const response = await fetch("http://localhost:4000/api/v1/user/register", {
+      const response = await fetch("/api/v1/user/register", {
         method: "POST",
         credentials: "include", // Equivalent to `withCredentials: true`
         body: data, // `data` should be a FormData object
@@ -123,7 +123,7 @@ export const register = (data) => async (dispatch) => {
 export const login=(data)=>async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
-    const response = await fetch("http://localhost:4000/api/v1/user/login", {
+    const response = await fetch("/api/v1/user/login", {
       method: "POST",
       credentials: "include", // Equivalent to `withCredentials: true`
       body: data, // `data` should be a FormData object
@@ -149,7 +149,7 @@ export const login=(data)=>async (dispatch) => {
 export const getUser=()=>async (dispatch) => {
   dispatch(userSlice.actions.fetchUserRequest());
   try {
-    const response = await fetch("http://localhost:4000/api/v1/user/getuser", {
+    const response = await fetch("/api/v1/user/getuser", {
       method: "GET",
       credentials: "include", // Equivalent to `withCredentials: true`
       
@@ -174,7 +174,7 @@ export const getUser=()=>async (dispatch) => {
 export const logout=()=>async (dispatch) => {
 
   try {
-    const response = await fetch("http://localhost:4000/api/v1/user/logout", {
+    const response = await fetch("/api/v1/user/logout", {
       method: "GET",
       credentials: "include", // Equivalent to `withCredentials: true`
       

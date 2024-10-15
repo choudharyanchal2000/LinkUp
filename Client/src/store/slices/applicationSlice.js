@@ -92,7 +92,7 @@ const applicationSlice = createSlice({
 export const fetchJobEmployerApplications = () => async (dispatch) => {
     dispatch(applicationSlice.actions.requestForAllApplications())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/application/employer/getall`, {
+        const response = await fetch(`/api/v1/application/employer/getall`, {
             method: "GET",
             credentials: "include", // Equivalent to `withCredentials: true`
 
@@ -112,7 +112,7 @@ export const fetchJobEmployerApplications = () => async (dispatch) => {
 export const fetchJobSeekerApplications = () => async (dispatch) => {
     dispatch(applicationSlice.actions.requestForMyApplications())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/application/jobseeker/getall`, {
+        const response = await fetch(`/api/v1/application/jobseeker/getall`, {
             method: "GET",
             credentials: "include", // Equivalent to `withCredentials: true`
 
@@ -135,7 +135,7 @@ export const fetchJobSeekerApplications = () => async (dispatch) => {
 export const postApplication = (data, jobId) => async (dispatch) => {
     dispatch(applicationSlice.actions.requestForPostApplications())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/application/post/${jobId}`, {
+        const response = await fetch(`/api/v1/application/post/${jobId}`, {
             method: "POST",
             credentials: "include", // Equivalent to `withCredentials: true`
             body: data, // `data` should be a FormData object
@@ -157,7 +157,7 @@ export const postApplication = (data, jobId) => async (dispatch) => {
 export const deleteApplication = (jobId) => async (dispatch) => {
     dispatch(applicationSlice.actions.requestForDeleteApplications())
     try {
-        const response = await fetch(`http://localhost:4000/api/v1/application/delete/${jobId}`, {
+        const response = await fetch(`/api/v1/application/delete/${jobId}`, {
             method: "DELETE",
             credentials: "include", // Equivalent to `withCredentials: true`
           
